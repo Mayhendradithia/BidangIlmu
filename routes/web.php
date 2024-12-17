@@ -39,7 +39,7 @@ Route::middleware(['auth:admin'])->group(function () {
     // Route::get('/store', [App\Http\Controllers\admin\KonfigurasiController::class, 'store'])->name('store');
     // Route::post('/store', [App\Http\Controllers\admin\KonfigurasiController::class, 'store'])->name('store');
     Route::resource('/dashboard/konfigurasi', App\Http\Controllers\admin\KonfigurasiController::class);
-    Route::resource('/dashboard/konfigurasi', App\Http\Controllers\admin\MitraController::class);
+    Route::resource('/dashboard/mitra', App\Http\Controllers\admin\MitraController::class);
     Route::resource('benefit', benefitController::class);
     Route::resource('/about', App\Http\Controllers\admin\AboutController::class);
     Route::resource('kategoris', KategoriController::class);

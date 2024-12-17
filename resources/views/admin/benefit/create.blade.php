@@ -18,11 +18,11 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" name="title" id="title" class="form-control" required>
+            <input type="text" name="title" id="title" class="form-control">
         </div>
         <div class="mb-3">
             <label for="caption" class="form-label">Caption</label>
-            <input type="text" name="caption" id="caption" class="form-control" required>
+            <input type="text" name="caption" id="caption" class="form-control">
         </div>
         <div class="mb-3">
             <label for="title_benefit" class="form-label">Title Benefit</label>

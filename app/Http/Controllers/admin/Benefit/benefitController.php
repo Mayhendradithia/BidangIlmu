@@ -22,8 +22,8 @@ class BenefitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'caption' => 'required',
+            'title' => 'nullable',
+            'caption' => 'nullable',
             'title_benefit' => 'required',
             'description' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp|max:4096',

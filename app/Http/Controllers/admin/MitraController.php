@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\mitra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Konfigurasi;
+use App\Models\benefit;
 
 class MitraController extends Controller
 {
@@ -13,8 +15,9 @@ class MitraController extends Controller
     public function index()
 {
     $mitras = mitra::all(); // Ambil semua data mitra dari database
-    dd($mitras);
-    return view('admin.landingAdmin', compact('mitras'));
+    $konfigurasi = Konfigurasi::all();
+    $benefits = benefit::all();
+    return view('admin.landingAdmin', compact('mitras','konfigurasi','benefits'));
      // Tampilkan ke view
 }
 
@@ -29,7 +32,7 @@ public function store(Request $request)
 {
     // Validasi data yang diterima
     $validatedData = $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
     ]);
 
     // Buat instance baru dari model Mitra

@@ -73,13 +73,12 @@
                             <!-- Home -->
                             <a id="companyMegaMenu" class="hs-mega-menu-invoker nav-link toggle"
                                 href="{{ route('index') }}" role="button" aria-expanded="false"
-                                style="min-width: 6rem;">Home</a>
+                                style="min-width: 6rem;">Beranda</a>
                             <!-- End Home -->
 
                             <li class="hs-has-mega-menu nav-item">
                                 <a id="landingsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle "
-                                    aria-current="page" href="#" role="button" aria-expanded="false">New
-                                    Experience</a>
+                                    aria-current="page" href="#" role="button" aria-expanded="false">Ruang Belajar</a>
 
                                 <!-- Mega Menu -->
                                 <div class="hs-mega-menu dropdown-menu w-100" aria-labelledby="landingsMegaMenu"
@@ -91,21 +90,20 @@
                                                 style="background-image: url(assets/svg/components/shape-3.svg);">
                                                 <div class="navbar-dropdown-menu-banner-content">
                                                     <div class="mb-4">
-                                                        <span class="h2 d-block">Buat Materi Dari kamu</span>
-                                                        <p>Tingkatkan Experience,Luaskan Relasi, dan Raih Kesuksesan
+                                                        <span class="h2 d-block">Kontribusi Berbagi Ilmu</span>
+                                                        <p>Yuk, sharing ilmu bareng!Setiap ide kamu itu keren.
                                                         </p>
                                                     </div>
 
                                                     @auth
                                                     <!-- Jika user sudah login, arahkan ke course-overview.html -->
                                                     <a class="btn btn-primary btn-transition"
-                                                        href="{{ route('dashboardDosen') }}">Selengkapnya<i
+                                                        href="{{ route('dashboardDosen') }}">Buat Materi  <i
                                                         class="bi-chevron-right small"></i></a>
                                                 @else
                                                     <!-- Jika user belum login, arahkan ke halaman login -->
-                                                    <a class="btn btn-primary btn-transition"
-                                                        href="{{ route('showLoginForm') }}">Selengkapnya<i
-                                                        class="bi-chevron-right small"></i></a>
+                                                    <a class="btn btn-warning btn-transition"
+                                                        href="{{ route('showLoginForm') }}">Kamu Belum Login</a>
                                                 @endauth
 
 
@@ -122,7 +120,7 @@
                                             <div class="navbar-dropdown-menu-inner">
                                                 <div class="row">
                                                     <div class="col-sm mb-3 mb-sm-0">
-                                                        <span class="dropdown-header">Experience</span>
+                                                        <span class="dropdown-header">Kategori materi</span>
                                                         <a class="dropdown-item "
                                                             href="landing-classic-corporate.html">Digital Marketing</a>
                                                         <a class="dropdown-item "
@@ -168,11 +166,11 @@
                             <!-- Account -->
                             
                                 <a id="accountMegaMenu" class="hs-mega-menu-invoker nav-link toggle "
-                                    href="{{ route('about') }}" role="button" aria-expanded="false">About Us</a>
+                                    href="{{ route('about') }}" role="button" aria-expanded="false">Tentang kami</a>
 
                             <li class="hs-has-sub-menu nav-item">
                                 <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle "
-                                     role="button" aria-expanded="false">Profile</a>
+                                     role="button" aria-expanded="false">Profil</a>
                                 <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu"
                                     style="min-width: 14rem;">
                       
@@ -201,10 +199,6 @@
                                     href="#" role="button" aria-expanded="false"
                                     style="min-width: 1rem;">Contact</a>
                             </li>
-
-
-
-                            <!-- End Button -->
                         </ul>
                     </div>
                 </div>
