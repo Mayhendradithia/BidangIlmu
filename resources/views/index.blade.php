@@ -74,19 +74,6 @@
 
 <!-- End Row -->
 
-            <!-- Browser Device -->
-          
-       
-        <!-- End Feature Nav -->
-
-        <!-- Features Nav -->
-        
-        <!-- End Features Nav -->
-
-        <!-- Icon Blocks -->
-
-        <!-- End Icon Blocks -->
-
         <!-- Testimonials -->
         <div class="container content-space-2 content-space-lg-3">
             <div class="text-center mb-5">

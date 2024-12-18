@@ -12,6 +12,7 @@ use App\Http\Controllers\premium\dashboardMeController;
 use App\Http\Controllers\admin\Benefit\benefitController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
+use App\Http\Controllers\MateriUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,7 +82,9 @@ Route::get('/courseOverview', function () {
 })->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
     Route::get('/dashboardDosen', [dashboardMeController::class, 'dashboardDosen'])->name('dashboardDosen');
-    Route::resource('materi', MateriController::class);
+    Route::resource('materiUsers', MateriUserController::class);
+
 });

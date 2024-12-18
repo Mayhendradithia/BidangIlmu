@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     use HasFactory;
-
+    protected $table = 'kategoris';
     // Menambahkan 'nama' ke dalam fillable untuk mass assignment
     protected $fillable = ['nama'];
 }
