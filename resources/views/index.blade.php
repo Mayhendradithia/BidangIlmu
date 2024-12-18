@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-lg-5">
                     <!-- Heading -->
                     <div class="mb-5">
-                        <h1>{{ $konfigurasi->title }}</h1>
+                        <h1>{{ $konfigurasi->title ??'Null'}}</h1>
                         <p>{{ $konfigurasi->description }}</p>
                     </div>
 
@@ -15,7 +15,7 @@
                     <!-- End Title & Description -->
 
                     <div class="d-grid d-sm-flex gap-3">
-                        <a class="btn btn-primary btn-transition" href="{{ route('gridCourse') }}">Bergabung</a>
+                        <a class="btn btn-primary btn-transition" href="{{ route('gridCourse')}}">Bergabung</a>
                         <a class="btn btn-link" href="{{ route('about') }}">Let's Talk <i class="bi-chevron-right small ms-1"></i></a>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
 <div id="featuresSection" class="container content-space-t-2 content-space-b-md-2 content-space-lg-3 mt-3"> <!-- Menggunakan mt-3 untuk memberi space -->
     <!-- Heading -->
     <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2 class="h1">{{ $benefit->first()->title }}</h2> <!-- Mengambil caption dari item pertama -->
-        <p>{{ $benefit->first()->caption }}</p> <!-- Mengambil caption dari item pertama -->
+        <h2 class="h1">{{ $benefit->first()->title ??'null'}}</h2> <!-- Mengambil caption dari item pertama -->
+        <p>{{ $benefit->first()->caption ??'null'}}</p> <!-- Mengambil caption dari item pertama -->
     </div>
     <!-- End Heading -->
 
@@ -83,12 +83,11 @@
 
             <!-- Blockquote -->
             <figure class="w-md-75 text-center mx-md-auto">
-                <blockquote class="blockquote">“ I just wanted to say that I'm very happy with my purchase of Front so far.
-                    The documentation is outstanding - clear and detailed. ”</blockquote>
+                <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu udah langkah besar buat masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”</blockquote>
 
                 <figcaption class="blockquote-footer text-center">
-                    Christina
-                    <span class="blockquote-footer-source">Product Manager | Mailchimp</span>
+                    Team Intern
+                    <span class="blockquote-footer-source">BidangIlmu | 2025</span>
                 </figcaption>
             </figure>
             <!-- End Blockquote -->
@@ -100,9 +99,9 @@
             <div class="bg-dark" style="background-image: url(assets/svg/components/wave-pattern-light.svg);">
                 <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-1">
                     <!-- Heading -->
-                    <div class="w-lg-50 text-center mx-lg-auto mb-7">
-                        <span class="text-cap text-white-70">Contact us</span>
-                        <h2 class="text-white lh-base">We collaborate with ambitious brands and people. <span
+                    <div class="w-lg-65 text-center mx-lg-auto mb-7">
+                        <span class="text-cap text-white-70">Hubungi Kami</span>
+                        <h2 class="text-white lh-base">Untuk mempermudah pengalaman Kamu, kami telah menyediakan Form yang bisa kamu isi atas pertanyaan yang ingin diajukan.<span
                                 class="text-warning">Let's chat.</span></h2>
                     </div>
                     <!-- End Heading -->
@@ -117,10 +116,10 @@
                                         <div class="col-sm-6">
                                             <!-- Form -->
                                             <div class="mb-4">
-                                                <label class="form-label" for="hireUsFormFirstName">First name</label>
+                                                <label class="form-label" for="hireUsFormFirstName">Nama Awal</label>
                                                 <input type="text" class="form-control form-control-lg"
                                                     name="hireUsFormNameFirstName" id="hireUsFormFirstName"
-                                                    placeholder="First name" aria-label="First name">
+                                                    placeholder="Nama Awal" aria-label="First name">
                                             </div>
                                             <!-- End Form -->
                                         </div>
@@ -129,10 +128,10 @@
                                         <div class="col-sm-6">
                                             <!-- Form -->
                                             <div class="mb-4">
-                                                <label class="form-label" for="hireUsFormLasttName">Last name</label>
+                                                <label class="form-label" for="hireUsFormLasttName">Nama Akhir</label>
                                                 <input type="text" class="form-control form-control-lg"
                                                     name="hireUsFormNameLastName" id="hireUsFormLasttName"
-                                                    placeholder="Last name" aria-label="Last name">
+                                                    placeholder="Nama Akhir" aria-label="Last name">
                                             </div>
                                             <!-- End Form -->
                                         </div>
@@ -142,7 +141,7 @@
 
                                     <!-- Form -->
                                     <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormWorkEmail">Email address</label>
+                                        <label class="form-label" for="hireUsFormWorkEmail">Alamat Email</label>
                                         <input type="email" class="form-control form-control-lg"
                                             name="hireUsFormNameWorkEmail" id="hireUsFormWorkEmail"
                                             placeholder="email@site.com" aria-label="email@site.com">
@@ -150,56 +149,31 @@
                                     <!-- End Form -->
 
                                     <!-- Form -->
-                                    <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormCompanyName">Company name <span
-                                                class="form-label-secondary">(Optional)</span></label>
-                                        <input type="text" class="form-control form-control-lg"
-                                            name="hireUsFormNameCompanyName" id="hireUsFormCompanyName"
-                                            placeholder="Htmlstream" aria-label="Htmlstream">
-                                    </div>
+
                                     <!-- End Form -->
 
                                     <!-- Select -->
-                                    <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormBudget">Budget</label>
-                                        <select id="hireUsFormBudget" class="form-select form-select-lg"
-                                            name="hireUsFormNameBudget" aria-label="Tell us about your budget">
-                                            <option selected>Tell us about your budget</option>
-                                            <option value="1">$1,000 - $10,000</option>
-                                            <option value="2">$10,000 - $20,000</option>
-                                            <option value="3">$20,000 - $30,000</option>
-                                            <option value="4">$30,000 - $40,000</option>
-                                            <option value="5">$40,000 - $50,000</option>
-                                            <option value="6">$50,000 - and more</option>
-                                        </select>
-                                    </div>
+
                                     <!-- End Select -->
 
                                     <!-- Form -->
                                     <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormDetails">Details</label>
+                                        <label class="form-label" for="hireUsFormDetails">Ajukan Pertanyaan</label>
                                         <textarea class="form-control form-control-lg" name="hireUsFormNameDetails" id="hireUsFormDetails"
-                                            placeholder="Tell us about your project" aria-label="Tell us about your project" rows="4"></textarea>
+                                            placeholder="...." aria-label="Tell us about your project" rows="4"></textarea>
                                     </div>
                                     <!-- End Form -->
 
                                     <!-- Check -->
-                                    <div class="form-check mb-4">
-                                        <input type="checkbox" class="form-check-input" id="signupFormPrivacyCheck"
-                                            name="signupFormPrivacyCheck" required
-                                            data-msg="Please accept our Privacy Policy.">
-                                        <label class="form-check-label" for="signupFormPrivacyCheck"> By submitting this
-                                            form I have read and acknowledged the <a href=page-privacy.html>Privacy
-                                                Policy</a></label>
-                                    </div>
+
                                     <!-- End Check -->
 
                                     <div class="d-grid mb-2">
-                                        <button type="submit" class="btn btn-primary btn-lg">Send inquiry</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Kirim </button>
                                     </div>
 
                                     <div class="text-center">
-                                        <span class="form-text">We'll get back to you in 1-2 business days.</span>
+                                        <span class="form-text">Kami akan Membalas 1 sampai 2 hari.</span>
                                     </div>
                                 </form>
                                 <!-- End Form -->

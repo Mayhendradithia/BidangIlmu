@@ -4,25 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Materi extends Model
 {
     use HasFactory;
-    protected $table = 'Materi';
+
+    // Tentukan kolom yang dapat diisi (mass assignable)
     protected $fillable = [
         'title',
         'kategori_id',
         'overview',
-        'user_id',
         'benefit',
-        'description',
-        'video'
+        'deskripsi',
+        'url_video',
     ];
-    public function kategori(){
-        return $this->belongsTo(Kategori::class);
-    }
-    public function user(){
-        return $this->belongsTo(user::class);
+
+    /**
+     * Relasi ke model Kategori
+     * Setiap materi berhubungan dengan satu kategori
+     */
+    // Di model Materi
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id'); // Relasi ke Kategori
     }
 }

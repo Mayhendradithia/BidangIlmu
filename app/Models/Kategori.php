@@ -8,7 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     use HasFactory;
-    protected $table = 'kategoris';
-    // Menambahkan 'nama' ke dalam fillable untuk mass assignment
-    protected $fillable = ['nama'];
+
+    // Tentukan kolom yang dapat diisi (mass assignable)
+    protected $fillable = [
+        'nama',
+    ];
+
+    /**
+     * Relasi ke model Materi
+     * Satu kategori memiliki banyak materi
+     */
+    // Di model Kategori
+    public function materis()
+    {
+        return $this->hasMany(Materi::class, 'kategori_id');
+    }
 }

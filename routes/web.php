@@ -12,7 +12,7 @@ use App\Http\Controllers\premium\dashboardMeController;
 use App\Http\Controllers\admin\Benefit\benefitController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
-use App\Http\Controllers\MateriUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +45,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('/about', App\Http\Controllers\admin\AboutController::class);
     Route::resource('kategoris', KategoriController::class);
     Route::get('/generate-report', [App\Http\Controllers\admin\ReportController::class, 'generateReport'])->name('report.generate');
+    Route::resource('materi', MateriController::class);
 });
 
 
@@ -77,14 +78,15 @@ Route::get('/gridCourse', function () {
 });
 Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
 
-Route::get('/courseOverview', function () {
-    return view('courseOverview');
-})->middleware('auth');
+
+Route::get('/courseOverview/{id}', [MateriController::class, 'show'])->name('courseOverview');
+Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
+
+
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
+    
     Route::get('/dashboardDosen', [dashboardMeController::class, 'dashboardDosen'])->name('dashboardDosen');
-    Route::resource('materiUsers', MateriUserController::class);
-
+    
 });

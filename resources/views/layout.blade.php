@@ -90,20 +90,20 @@
                                                 style="background-image: url(assets/svg/components/shape-3.svg);">
                                                 <div class="navbar-dropdown-menu-banner-content">
                                                     <div class="mb-4">
-                                                        <span class="h2 d-block">Kontribusi Berbagi Ilmu</span>
-                                                        <p>Yuk, sharing ilmu bareng!Setiap ide kamu itu keren.
+                                                        <span class="h2 d-block">Akses Materi</span>
+                                                        <p>Udah waktunya jadi expert, yuk belajar!
                                                         </p>
                                                     </div>
 
                                                     @auth
                                                     <!-- Jika user sudah login, arahkan ke course-overview.html -->
                                                     <a class="btn btn-primary btn-transition"
-                                                        href="{{ route('dashboardDosen') }}">Buat Materi  <i
+                                                        href="{{ route('gridCourse') }}">Selengkapnya  <i
                                                         class="bi-chevron-right small"></i></a>
                                                 @else
                                                     <!-- Jika user belum login, arahkan ke halaman login -->
                                                     <a class="btn btn-warning btn-transition"
-                                                        href="{{ route('showLoginForm') }}">Kamu Belum Login</a>
+                                                        href="{{ route('showRegisterForm') }}">Kamu Belum Daftar nih</a>
                                                 @endauth
 
 
