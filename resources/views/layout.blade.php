@@ -196,7 +196,7 @@
 
                             <li class="">
                                 <a id="portfolioMegaMenu" class="btn btn-primary btn-transition"
-                                    href="#" role="button" aria-expanded="false"
+                                    href="#contact" role="button" aria-expanded="false"
                                     style="min-width: 1rem;">Contact</a>
                             </li>
                         </ul>

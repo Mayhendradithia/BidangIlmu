@@ -95,8 +95,9 @@
         <!-- End Testimonials -->
 
         <!-- Contacts -->
-        <div class="position-relative">
-            <div class="bg-dark" style="background-image: url(assets/svg/components/wave-pattern-light.svg);">
+        <section id="contact">
+            <div class="position-relative">
+                <div class="bg-dark" style="background-image: url(assets/svg/components/wave-pattern-light.svg);">
                 <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-1">
                     <!-- Heading -->
                     <div class="w-lg-65 text-center mx-lg-auto mb-7">
@@ -160,10 +161,10 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="hireUsFormDetails">Ajukan Pertanyaan</label>
                                         <textarea class="form-control form-control-lg" name="hireUsFormNameDetails" id="hireUsFormDetails"
-                                            placeholder="...." aria-label="Tell us about your project" rows="4"></textarea>
+                                        placeholder="...." aria-label="Tell us about your project" rows="4"></textarea>
                                     </div>
                                     <!-- End Form -->
-
+                                    
                                     <!-- Check -->
 
                                     <!-- End Check -->
@@ -171,7 +172,7 @@
                                     <div class="d-grid mb-2">
                                         <button type="submit" class="btn btn-primary btn-lg">Kirim </button>
                                     </div>
-
+                                    
                                     <div class="text-center">
                                         <span class="form-text">Kami akan Membalas 1 sampai 2 hari.</span>
                                     </div>
@@ -183,6 +184,7 @@
                     </div>
                 </div>
             </div>
+        </section>
 
             <!-- Shape -->
             <div class="shape shape-bottom zi-1">

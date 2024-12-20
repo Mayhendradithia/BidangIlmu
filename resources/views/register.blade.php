@@ -67,7 +67,7 @@
         </div>
       
         <div class="text-center">
-          <p>Already have an account? <a class="link" href="{{ route('showRegisterForm') }}">Log in here</a></p>
+          <p>Already have an account? <a class="link" href="{{ route('showLoginForm') }}">Log in here</a></p>
         </div>
       </form>
       

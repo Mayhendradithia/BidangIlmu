@@ -10,9 +10,10 @@ use App\Http\Controllers\courseViewController;
 use App\Http\Controllers\gridCourseController;
 use App\Http\Controllers\premium\dashboardMeController;
 use App\Http\Controllers\admin\Benefit\benefitController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,16 @@ Route::post('/loginAdmin', [loginAdminController::class, 'admin'])->name('admin'
 Route::post('/logoutAdmin', [loginAdminController::class, 'logoutAdmin'])->name('logoutAdmin'); // Form action ke sini
 
 Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users'); // Menampilkan daftar user
+    Route::get('admin/user/{id}/verifyPassword', [UserController::class, 'edit'])->name('user.verifyPassword'); // Form verifikasi password
+    Route::post('admin/user/{id}/verifyPassword', [UserController::class, 'verifyPassword']); // Proses verifikasi password
+    Route::get('admin/user/{id}/edit', [UserController::class, 'editForm'])->name('user.editForm'); // Form edit user setelah password diverifikasi
+    Route::put('admin/user/{id}', [UserController::class, 'update'])->name('user.update'); // Update data user
+    Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('user.destroy'); // Hapus user
+    
+
+
+
     Route::get('/dashbord', [App\Http\Controllers\admin\superadminController::class, 'dashbord'])->name('dashbord');
     Route::get('/courseAdmin', [App\Http\Controllers\admin\coursesAdminController::class, 'courseAdmin'])->name('courseAdmin');
     // Route::get('/konfigurasi', [App\Http\Controllers\admin\KonfigurasiController::class, 'landingAdmin'])->name('konfigurasi');
@@ -76,17 +87,19 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/gridCourse', function () {
     return view('gridCourse');
 });
-Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
 
-
-Route::get('/courseOverview/{id}', [MateriController::class, 'show'])->name('courseOverview');
-Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
 
 
 
 Route::middleware(['auth'])->group(function () {
 
-    
-    Route::get('/dashboardDosen', [dashboardMeController::class, 'dashboardDosen'])->name('dashboardDosen');
-    
+    Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
+
+
+    Route::get('/courseOverview/{id}', [MateriController::class, 'show'])->name('courseOverview');
+    Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

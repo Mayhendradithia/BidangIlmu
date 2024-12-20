@@ -57,7 +57,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Kustom
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -65,13 +65,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Konfigurasi</span>
+                    <span>Konfigurasi Halaman</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Konfigurasi:</h6>
-                        <a class="collapse-item" href="{{ route('konfigurasi.index') }}">Landing</a>
-                        <a class="collapse-item" href="{{ route('about.index') }}">About</a>
+
+                        <a class="collapse-item" href="{{ route('konfigurasi.index') }}">Beranda</a>
+                        <a class="collapse-item" href="{{ route('about.index') }}">Tentang Kami</a>
                     </div>
                 </div>
             </li>
@@ -86,7 +86,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                PENDIDIKAN
+                Pendidikan
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -102,7 +102,29 @@
                         <a class="collapse-item" href="{{ route('materi.index') }}">Materi</a>
                     </div>
                 </div>
+
+                
+                
             </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Data User
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage"
+                    aria-expanded="true" aria-controls="collapsePage">
+                    <i class="bi bi-person-fill-gear"></i>
+                    <span>User</span>
+                </a>
+                <div id="collapsePage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Akun User</h6>
+                        <a class="collapse-item" href="{{ route('admin.users') }}">Data User</a>
+                    </div>
+                </div>
+            </li>
+            
 
             <!-- Nav Item - Charts -->
 

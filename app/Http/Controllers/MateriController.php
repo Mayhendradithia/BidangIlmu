@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Materi;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MateriController extends Controller
 {
@@ -12,17 +13,21 @@ class MateriController extends Controller
     public function index()
     {
         $materis = Materi::with('kategori')->get();
+
+
+        Auth::routes();
+
         return view('admin.materi.index', compact('materis'));
     }
 
     public function show($id)
-{
-    // Ambil data materi berdasarkan ID beserta kategorinya
-    $materi = Materi::with('kategori')->findOrFail($id);
+    {
+        // Ambil data materi berdasarkan ID beserta kategorinya
+        $materi = Materi::with('kategori')->findOrFail($id);
 
-    // Kirim data ke view
-    return view('courseOverview', compact('materi'));
-}
+        // Kirim data ke view
+        return view('courseOverview', compact('materi'));
+    }
 
 
     // Menampilkan form tambah materi
