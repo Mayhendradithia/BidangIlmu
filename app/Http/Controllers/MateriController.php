@@ -13,10 +13,6 @@ class MateriController extends Controller
     public function index()
     {
         $materis = Materi::with('kategori')->get();
-
-
-        Auth::routes();
-
         return view('admin.materi.index', compact('materis'));
     }
 

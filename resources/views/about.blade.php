@@ -7,15 +7,15 @@
     <div class="w-lg-75 text-center mx-lg-auto">
       <!-- Heading -->
       <div class="mb-5 mb-md-10">
-        <h1 class="display-4">{{ $about->title }}</h1>
-        <p class="lead mt-5">{{ $about->description }}</p>
+        <h1 class="display-4">{{ $about->title ?? 'null' }}</h1>
+        <p class="lead mt-5">{{ $about->description ?? 'null'}}</p>
       </div>
       <!-- End Heading -->
     </div>
 
     <div class="row gx-3">
       <div class="col mb-3">
-        <div class="bg-img-start" "><img style=" height: 15rem;" src="{{ asset('/storage/' . $about->image) }}"></div>
+        <div class="bg-img-start" "><img style=" height: 15rem;" src="{{ asset('/storage/' . $about->image)  }}"></div>
       </div>
       <!-- End Col -->
 

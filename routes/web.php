@@ -13,7 +13,7 @@ use App\Http\Controllers\admin\Benefit\benefitController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
-use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +99,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courseOverview/{id}', [MateriController::class, 'show'])->name('courseOverview');
     Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

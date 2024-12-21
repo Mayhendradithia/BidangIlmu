@@ -8,7 +8,7 @@
                     <!-- Heading -->
                     <div class="mb-5">
                         <h1>{{ $konfigurasi->title ??'Null'}}</h1>
-                        <p>{{ $konfigurasi->description }}</p>
+                        <p>{{ $konfigurasi->description ??'Null' }}</p>
                     </div>
 
 
