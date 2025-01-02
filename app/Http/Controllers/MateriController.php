@@ -35,19 +35,36 @@ class MateriController extends Controller
 
     // Menyimpan materi ke database
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'kategori_id' => 'required',
-            'overview' => 'required',
-            'benefit' => 'required',
-            'deskripsi' => 'required',
-            'url_video' => 'required|url',
-        ]);
+{
+    $request->validate([
+        'title' => 'required',
+        'kategori_id' => 'required',
+        'overview' => 'required',
+        'benefit' => 'required',
+        'deskripsi' => 'required',
+        'url_video' => 'required|url',
+    ]);
 
-        Materi::create($request->all());
-        return redirect()->route('materi.index')->with('success', 'Materi berhasil ditambahkan!');
-    }
+    // Proses benefit supaya jadi array
+    $benefits = explode(',', $request->benefit);
+
+    // Simpan ke database
+    Materi::create([
+        'title' => $request->title,
+        'kategori_id' => $request->kategori_id,
+        'overview' => $request->overview,
+        'benefit' => implode(',', $benefits), // Simpan dalam format string dengan koma
+        'deskripsi' => $request->deskripsi,
+        'url_video' => $request->url_video,
+    ]);
+
+    return redirect()->route('materi.index')->with('success', 'Materi berhasil ditambahkan!');
+}
+
+
+
+
+
 
     // Menampilkan form edit materi
     public function edit(Materi $materi)
@@ -58,19 +75,32 @@ class MateriController extends Controller
 
     // Memperbarui data materi
     public function update(Request $request, Materi $materi)
-    {
-        $request->validate([
-            'title' => 'required',
-            'kategori_id' => 'required',
-            'overview' => 'required',
-            'benefit' => 'required',
-            'deskripsi' => 'required',
-            'url_video' => 'required|url',
-        ]);
+{
+    $request->validate([
+        'title' => 'required',
+        'kategori_id' => 'required',
+        'overview' => 'required',
+        'benefit' => 'required',
+        'deskripsi' => 'required',
+        'url_video' => 'required|url',
+    ]);
 
-        $materi->update($request->all());
-        return redirect()->route('materi.index')->with('success', 'Materi berhasil diperbarui!');
-    }
+    // Memastikan benefit dikirim sebagai array, kemudian diubah menjadi string dengan implode
+    $benefits = explode(',', $request->benefit); // Mengubah benefit menjadi array
+
+    $materi->update([
+        'title' => $request->title,
+        'kategori_id' => $request->kategori_id,
+        'overview' => $request->overview,
+        'benefit' => implode(',', $benefits), // Menyimpan sebagai string dengan koma
+        'deskripsi' => $request->deskripsi,
+        'url_video' => $request->url_video,
+    ]);
+
+    return redirect()->route('materi.index')->with('success', 'Materi berhasil diperbarui!');
+}
+
+
 
     // Menghapus materi
     public function destroy(Materi $materi)

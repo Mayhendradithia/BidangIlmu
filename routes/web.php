@@ -94,8 +94,6 @@ Route::get('/gridCourse', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
-
-
-    Route::get('/courseOverview/{id}', [MateriController::class, 'show'])->name('courseOverview');
-    Route::get('/courseOverview', [courseViewController::class, 'courseOverview'])->name('courseOverview');
+    Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');
+    
 });

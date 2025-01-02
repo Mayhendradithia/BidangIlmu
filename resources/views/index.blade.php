@@ -21,7 +21,7 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="col-sm-7 col-md-6 d-none d-md-block">
+                <div class="col-sm-7 col-md-5 d-none d-md-block">
                     <img class="img-fluid" src="{{ asset('/storage/' . $konfigurasi->image) }}" alt="Image Description">
                 </div>
                 <!-- End Col -->
@@ -44,7 +44,7 @@
 <!-- End Swiper Slider -->
 
 <!-- Memberikan sedikit space di sini -->
-<div id="featuresSection" class="container content-space-t-2 content-space-b-md-2 content-space-lg-3 mt-3"> <!-- Menggunakan mt-3 untuk memberi space -->
+<div id="featuresSection" class="container content-space-t-2 content-space-b-md-2 content-space-lg-3 mt-2   "> <!-- Menggunakan mt-3 untuk memberi space -->
     <!-- Heading -->
     <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
         <h2 class="h1">{{ $benefit->first()->title ??'null'}}</h2> <!-- Mengambil caption dari item pertama -->
@@ -187,7 +187,7 @@
         </section>
 
             <!-- Shape -->
-            <div class="shape shape-bottom zi-1">
+            <div class="shape shape-bottom">
                 <svg width="3000" height="500" viewBox="0 0 3000 500" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 500H3000V0L0 500Z" fill="#fff" />

@@ -74,53 +74,54 @@
             <!-- Card Grid -->
             <div class="container content-space-sm-2">
                 <!-- Title -->
-                
+
                 <!-- End Title -->
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
-                    @foreach($materi as $item)
-                    <div class="col mb-5">
-                        <!-- Card -->
-                        <div class="card card-bordered h-100">
-                            <!-- Card Pinned -->
-                            <div class="card-pinned">
-                                <img class="card-img-top" src="{{ $item->image_url ?? '../assets/svg/components/card-15.svg' }}" 
-                                     alt="{{ $item->title }}">
-                            </div>
-                            <!-- End Card Pinned -->
-                
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <small class="card-subtitle">{{ $item->kategori->nama ?? 'Belum Maintenance' }}</small>
-                                <div class="mb-3">
-                                    <h3 class="card-title">
-                                        <a class="text-dark">{{ $item->title ??'Belum Maintenance' }}</a>
-                                    </h3>
+                    @foreach ($materi as $item)
+                        <div class="col mb-5">
+                            <!-- Card -->
+                            <div class="card card-bordered h-100">
+                                <!-- Card Pinned -->
+                                <div class="card-pinned">
+                                    <img class="card-img-top"
+                                        src="{{ $item->image_url ?? '../assets/svg/components/card-15.svg' }}"
+                                        alt="{{ $item->title }}">
                                 </div>
-                            </div>
-                            <!-- End Card Body -->
-                
-                            <!-- Card Footer -->
-                            <div class="card-footer pt-0 ">
-                                <div class="d-flex justify-content-between align-items-center float-end">
-                                    @auth
-                                        <!-- Jika user sudah login -->
-                                        <a class="btn btn-primary btn-sm btn-transition" 
-                                           href="{{ route('courseOverview', ['id' => $item->id]) }}">Selengkapnya</a>
-                                    @else
-                                        <!-- Jika user belum login -->
-                                        <a class="btn btn-primary btn-sm btn-transition" 
-                                           href="{{ route('showLoginForm') }}">Selengkapnya</a>
-                                    @endauth
+                                <!-- End Card Pinned -->
+
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <small class="card-subtitle">{{ $item->kategori->nama ?? 'Belum Maintenance' }}</small>
+                                    <div class="mb-3">
+                                        <h3 class="card-title">
+                                            <a class="text-dark">{{ $item->title ?? 'Belum Maintenance' }}</a>
+                                        </h3>
+                                    </div>
                                 </div>
+                                <!-- End Card Body -->
+
+                                <!-- Card Footer -->
+                                <div class="card-footer pt-0 ">
+                                    <div class="d-flex justify-content-between align-items-center float-end">
+                                        @auth
+                                            <!-- Jika user sudah login -->
+                                            <a class="btn btn-primary btn-sm btn-transition"
+                                                href="{{ route('userCourseOverview', ['id' => $item->id]) }}">Selengkapnya</a>
+                                        @else
+                                            <!-- Jika user belum login -->
+                                            <a class="btn btn-primary btn-sm btn-transition"
+                                                href="{{ route('showLoginForm') }}">Selengkapnya</a>
+                                        @endauth
+                                    </div>
+                                </div>
+                                <!-- End Card Footer -->
                             </div>
-                            <!-- End Card Footer -->
+                            <!-- End Card -->
                         </div>
-                        <!-- End Card -->
-                    </div>
                     @endforeach
                 </div>
-                
+
                 <!-- End Row -->
 
                 <div class="text-center">
