@@ -23,6 +23,7 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.minc619.css?v=1.0') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fslightbox@3.4.0/dist/index.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -659,6 +660,8 @@
     })()
 </script>
 <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.0/dist/index.min.js"></script>
+
+
 </body>
 
 <!-- Mirrored from htmlstream.com/preview/front-v4.2/html/landing-app-saas.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Aug 2022 18:15:36 GMT -->

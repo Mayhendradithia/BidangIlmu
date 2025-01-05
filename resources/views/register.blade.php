@@ -7,67 +7,61 @@
     <div class="flex-grow-1 mx-auto" style="max-width: 28rem;">
       <!-- Heading -->
       <div class="text-center mb-5 mb-md-7">
-        <h1 class="h2">Register</h1>
-        <p>Fill out the form to get started.</p>
+        <h1 class="h2">Daftar</h1>
+        <p>Isi formulir untuk memulai.</p>
       </div>
       <!-- End Heading -->
 
       <!-- Form -->
-      <form  action="{{ route('register') }}" method="POST" novalidate>
+      <form action="{{ route('register') }}" method="POST" novalidate>
         @csrf <!-- Tambahkan CSRF Token untuk keamanan -->
       
         <!-- Form -->
         <div class="mb-3">
-          <label class="form-label" for="name">Username</label>
-          <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Your name" aria-label="name" required>
-          <span class="invalid-feedback">Please enter a valid Username.</span>
+          <label class="form-label" for="name">Nama Pengguna</label>
+          <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Nama Anda" aria-label="name" required>
+          <span class="invalid-feedback">Harap masukkan Nama Pengguna yang valid.</span>
         </div>
         <!-- End Form -->
       
         <!-- Form -->
         <div class="mb-3">
-          <label class="form-label" for="signupSimpleSignupEmail">Your email</label>
+          <label class="form-label" for="signupSimpleSignupEmail">Email Anda</label>
           <input type="email" class="form-control form-control-lg" name="email" id="signupSimpleSignupEmail" placeholder="email@site.com" aria-label="email@site.com" required>
-          <span class="invalid-feedback">Please enter a valid email address.</span>
+          <span class="invalid-feedback">Harap masukkan alamat email yang valid.</span>
         </div>
         <!-- End Form -->
       
         <!-- Form -->
         <div class="mb-3">
-          <label class="form-label" for="signupSimpleSignupPassword">Password</label>
+          <label class="form-label" for="signupSimpleSignupPassword">Kata Sandi</label>
           <div class="input-group input-group-merge" data-hs-validation-validate-class>
-            <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSimpleSignupPassword" placeholder="8+ characters required" aria-label="8+ characters required" required>
+            <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSimpleSignupPassword" placeholder="8+ karakter diperlukan" aria-label="8+ karakter diperlukan" required>
             <a class="js-toggle-password-target-1 input-group-append input-group-text" href="javascript:;"></a>
           </div>
-          <span class="invalid-feedback">Your password is invalid. Please try again.</span>
+          <span class="invalid-feedback">Kata sandi Anda tidak valid. Harap coba lagi.</span>
         </div>
         <!-- End Form -->
       
         <!-- Form -->
         <div class="mb-3">
-          <label class="form-label" for="signupSimpleSignupConfirmPassword">Confirm password</label>
+          <label class="form-label" for="signupSimpleSignupConfirmPassword">Konfirmasi Kata Sandi</label>
           <div class="input-group input-group-merge" data-hs-validation-validate-class>
-            <input type="password" class="js-toggle-password form-control form-control-lg" name="password_confirmation" id="signupSimpleSignupConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required>
+            <input type="password" class="js-toggle-password form-control form-control-lg" name="password_confirmation" id="signupSimpleSignupConfirmPassword" placeholder="8+ karakter diperlukan" aria-label="8+ karakter diperlukan" required>
             <a class="js-toggle-password-target-2 input-group-append input-group-text" href="javascript:;"></a>
           </div>
-          <span class="invalid-feedback">Password does not match the confirm password.</span>
+          <span class="invalid-feedback">Kata sandi tidak cocok dengan konfirmasi kata sandi.</span>
         </div>
         <!-- End Form -->
       
-        <!-- Check -->
-        <div class="form-check mb-3">
-          <input type="checkbox" class="form-check-input" id="signupHeroFormPrivacyCheck" name="signupFormPrivacyCheck" required>
-          <label class="form-check-label small" for="signupHeroFormPrivacyCheck"> By submitting this form I have read and acknowledged the <a href="page-privacy.html">Privacy Policy</a></label>
-          <span class="invalid-feedback">Please accept our Privacy Policy.</span>
-        </div>
-        <!-- End Check -->
+
       
         <div class="d-grid mb-3">
-          <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
+          <button type="submit" class="btn btn-primary btn-lg">Daftar</button>
         </div>
       
         <div class="text-center">
-          <p>Already have an account? <a class="link" href="{{ route('showLoginForm') }}">Log in here</a></p>
+          <p>Sudah punya akun? <a class="link" href="{{ route('showLoginForm') }}">Masuk di sini</a></p>
         </div>
       </form>
       

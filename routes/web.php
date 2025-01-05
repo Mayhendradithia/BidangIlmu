@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\courseViewController;
 use App\Http\Controllers\gridCourseController;
-use App\Http\Controllers\premium\dashboardMeController;
+
 use App\Http\Controllers\admin\Benefit\benefitController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +84,19 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('showLogin
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+
+
+
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('password.request');
+Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('password.reset');
+Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
+
+
+
+
+
+
 Route::get('/gridCourse', function () {
     return view('gridCourse');
 });
@@ -95,5 +108,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
     Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');
+
+    
     
 });
