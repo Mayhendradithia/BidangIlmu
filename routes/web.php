@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,12 @@ Route::get('/gridCourse', function () {
 
 
 Route::middleware(['auth'])->group(function () {
+        Route::get('/profile', [ProfilController::class, 'showProfile'])->name('profile');
+        Route::post('/profile/update', [ProfilController::class, 'updateProfile'])->name('profile.update');
+
+    
+
+
 
     Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
     Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');

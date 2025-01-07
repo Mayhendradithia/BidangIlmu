@@ -158,27 +158,29 @@
                             <a id="accountMegaMenu" class="hs-mega-menu-invoker nav-link toggle"
                                 href="{{ route('about') }}" role="button" aria-expanded="false">Tentang kami</a>
 
-                            <li class="hs-has-sub-menu nav-item">
-                                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle"
-                                    role="button" aria-expanded="false">Profil</a>
-                                <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu"
-                                    style="min-width: 14rem;">
-                                    @if (Auth::guest())
-                                        <a class="dropdown-item" href="{{ route('showLoginForm') }}"
-                                            style="min-width: 7rem;">Login</a>
-                                        <a class="dropdown-item" href="{{ route('register') }}"
-                                            style="min-width: 7rem;">Register</a>
-                                    @else
-                                        {{ auth()->user()->name }}
-                                        <div class="dropdown-divider"></div>
-                                        <form action="{{ route('logout') }}" method="POST" id="newForm">
-                                            @csrf
-                                            <a class="dropdown-item"
-                                                onclick="document.getElementById('newForm').submit();">Logout</a>
-                                        </form>
-                                    @endif
-                                </div>
-                            </li>
+                                <li class="hs-has-sub-menu nav-item">
+                                    <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle" role="button" aria-expanded="false">
+                                        Profil
+                                    </a>
+                                    <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 14rem;">
+                                        @if (Auth::guest())
+                                            <!-- Jika belum login -->
+                                            <a class="dropdown-item" href="{{ route('showLoginForm') }}" style="min-width: 7rem;">Login</a>
+                                            <a class="dropdown-item" href="{{ route('register') }}" style="min-width: 7rem;">Register</a>
+                                        @else
+                                            <!-- Jika sudah login -->
+                                            <a class="dropdown-item" href="{{ route('profile') }}" style="min-width: 7rem;">
+                                                Profil Saya
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+                                                @csrf
+                                                <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+                                            </form>
+                                        @endif
+                                    </div>
+                                </li>
+                                
 
                             <li class="">
                                 <a id="portfolioMegaMenu" class="btn btn-primary btn-transition" href="#contact"
