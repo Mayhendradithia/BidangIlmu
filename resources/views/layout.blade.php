@@ -112,27 +112,22 @@
                                             <div class="navbar-dropdown-menu-inner">
                                                 <div class="row">
                                                     <div class="col-sm mb-3 mb-sm-0">
-                                                        <span class="dropdown-header">Kategori materi</span>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-corporate.html">Digital Marketing</a>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-analytics.html">Software Development
-                                                            <span
-                                                                class="badge bg-primary rounded-pill ms-1">Hot</span></a>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-studio.html">Blogger</a>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-marketing.html">Brand Ambassador</a>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-advertisement.html">Advertisement</a>
-                                                        <a class="dropdown-item"
-                                                            href="landing-classic-consulting.html">Consulting</a>
+                                                        <span class="dropdown-header">Kategori Materi</span>
+                                                        @if (isset($kategori) && $kategori->isNotEmpty())
+                                                            @foreach ($kategori as $kat)
+                                                                <a class="dropdown-item"
+                                                                    href="{{ url('/gridCourse?kategori=' . $kat->id) }}">{{ $kat->nama }}</a>
+                                                            @endforeach
+                                                        @else
+                                                            <p>No categories available</p>
+                                                        @endif
                                                     </div>
                                                     <!-- End Col -->
 
                                                     <div class="col-sm">
                                                         <div class="mb-3">
                                                             <span class="dropdown-header">Courses</span>
+                                                            <!-- Jika ada data kategori lain untuk courses, kamu bisa menambahkannya disini -->
                                                             <a class="dropdown-item"
                                                                 href="landing-app-ui-kit.html">Design</a>
                                                             <a class="dropdown-item" href="landing-app-saas.html">Web
@@ -148,6 +143,7 @@
                                                 <!-- End Row -->
                                             </div>
                                         </div>
+
                                         <!-- End Col -->
                                     </div>
                                     <!-- End Row -->
@@ -158,29 +154,35 @@
                             <a id="accountMegaMenu" class="hs-mega-menu-invoker nav-link toggle"
                                 href="{{ route('about') }}" role="button" aria-expanded="false">Tentang kami</a>
 
-                                <li class="hs-has-sub-menu nav-item">
-                                    <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle" role="button" aria-expanded="false">
-                                        Profil
-                                    </a>
-                                    <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 14rem;">
-                                        @if (Auth::guest())
-                                            <!-- Jika belum login -->
-                                            <a class="dropdown-item" href="{{ route('showLoginForm') }}" style="min-width: 7rem;">Login</a>
-                                            <a class="dropdown-item" href="{{ route('register') }}" style="min-width: 7rem;">Register</a>
-                                        @else
-                                            <!-- Jika sudah login -->
-                                            <a class="dropdown-item" href="{{ route('profile') }}" style="min-width: 7rem;">
-                                                Profil Saya
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <form action="{{ route('logout') }}" method="POST" id="logoutForm">
-                                                @csrf
-                                                <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit();">Logout</a>
-                                            </form>
-                                        @endif
-                                    </div>
-                                </li>
-                                
+                            <li class="hs-has-sub-menu nav-item">
+                                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle"
+                                    role="button" aria-expanded="false">
+                                    Profil
+                                </a>
+                                <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu"
+                                    style="min-width: 14rem;">
+                                    @if (Auth::guest())
+                                        <!-- Jika belum login -->
+                                        <a class="dropdown-item" href="{{ route('showLoginForm') }}"
+                                            style="min-width: 7rem;">Login</a>
+                                        <a class="dropdown-item" href="{{ route('register') }}"
+                                            style="min-width: 7rem;">Register</a>
+                                    @else
+                                        <!-- Jika sudah login -->
+                                        <a class="dropdown-item" href="{{ route('profile') }}"
+                                            style="min-width: 7rem;">
+                                            Profil Saya
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+                                            @csrf
+                                            <a class="dropdown-item"
+                                                onclick="document.getElementById('logoutForm').submit();">Logout</a>
+                                        </form>
+                                    @endif
+                                </div>
+                            </li>
+
 
                             <li class="">
                                 <a id="portfolioMegaMenu" class="btn btn-primary btn-transition" href="#contact"

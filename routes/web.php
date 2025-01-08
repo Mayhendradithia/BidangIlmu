@@ -73,6 +73,9 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/', [indexController::class, 'index'])->name('index');
+// routes/web.php
+
+
 
 Route::get('/aboutUs', [aboutUsController::class, 'about'])->name('about');
 
@@ -112,9 +115,11 @@ Route::middleware(['auth'])->group(function () {
     
 
 
+        Route::get('/kategori/{id}', [IndexController::class, 'showKategori'])->name('kategori.show');
+Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
+Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');
 
-    Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
-    Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');
+
 
     
     

@@ -1,29 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" dir="">
-
-<!-- Mirrored from htmlstream.com/preview/front-v4.2/html/demo-help-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Aug 2022 18:12:02 GMT -->
-
-<head>
-    <!-- Required Meta Tags Always Come First -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
-
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
-
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/css/vendor.min.css">
-    <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/font/bootstrap-icons.css">
-
-    <!-- CSS Front Template -->
-    <link rel="stylesheet" href="../assets/css/theme.minc619.css?v=1.0">
-</head>
 
 <body>
     <!-- ========== HEADER ========== -->
@@ -41,22 +15,10 @@
                         <div class="col-md-6 mb-5 mb-md-0">
                             <div class="mb-3">
                                 <h1>Mau belajar apa hari ini ?</h1>
+                                <p>Kami Selalu Siap Untuk Membantu Proses Pembelajaran Kamu</p>
+                                <p>Banyak pilihan Kategori yang bisa kamu pilih</p>
                             </div>
 
-                            <form>
-                                <!-- Input Card -->
-                                <div class="input-card mb-3">
-                                    <div class="input-card-form">
-                                        <label for="searchAnswersForm" class="form-label visually-hidden"></label>
-                                        <input type="text" class="form-control form-control-lg" id="searchAnswersForm"
-                                            placeholder="Search for Courses" aria-label="Search for answers">
-                                    </div>
-                                    <button type="button" class="btn btn-primary btn-lg">
-                                        <i class="bi-search"></i>
-                                    </button>
-                                </div>
-                                <!-- End Input Card -->
-                            </form>
                         </div>
                         <!-- End Col -->
 
@@ -80,17 +42,12 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
                     @foreach ($materi as $item)
                         <div class="col mb-5">
-                            <!-- Card -->
                             <div class="card card-bordered h-100">
-                                <!-- Card Pinned -->
                                 <div class="card-pinned">
                                     <img class="card-img-top"
                                         src="{{ $item->image_url ?? '../assets/svg/components/card-15.svg' }}"
                                         alt="{{ $item->title }}">
                                 </div>
-                                <!-- End Card Pinned -->
-
-                                <!-- Card Body -->
                                 <div class="card-body">
                                     <small class="card-subtitle">{{ $item->kategori->nama ?? 'Belum Maintenance' }}</small>
                                     <div class="mb-3">
@@ -99,28 +56,22 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <!-- End Card Body -->
-
-                                <!-- Card Footer -->
-                                <div class="card-footer pt-0 ">
+                                <div class="card-footer pt-0">
                                     <div class="d-flex justify-content-between align-items-center float-end">
                                         @auth
-                                            <!-- Jika user sudah login -->
                                             <a class="btn btn-primary btn-sm btn-transition"
-                                                href="{{ route('userCourseOverview', ['id' => $item->id]) }}">Selengkapnya</a>
+                                               href="{{ route('userCourseOverview', ['id' => $item->id]) }}">Selengkapnya</a>
                                         @else
-                                            <!-- Jika user belum login -->
                                             <a class="btn btn-primary btn-sm btn-transition"
-                                                href="{{ route('showLoginForm') }}">Selengkapnya</a>
+                                               href="{{ route('showLoginForm') }}">Selengkapnya</a>
                                         @endauth
                                     </div>
                                 </div>
-                                <!-- End Card Footer -->
                             </div>
-                            <!-- End Card -->
                         </div>
                     @endforeach
                 </div>
+                
 
                 <!-- End Row -->
 
