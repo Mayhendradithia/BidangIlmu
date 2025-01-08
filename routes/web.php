@@ -40,7 +40,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('admin/user/{id}/verifyPassword', [UserController::class, 'verifyPassword']); // Proses verifikasi password
     Route::get('admin/user/{id}/edit', [UserController::class, 'editForm'])->name('user.editForm'); // Form edit user setelah password diverifikasi
     Route::put('admin/user/{id}', [UserController::class, 'update'])->name('user.update'); // Update data user
-    Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('user.destroy'); // Hapus user
+    Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy'); // Hapus user
     
 
 

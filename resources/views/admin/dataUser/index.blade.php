@@ -44,13 +44,13 @@
                                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" id="delete-form-{{ $user->id }}" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
-
-                                    <a class="btn btn-danger btn-icon-split mr-2" onclick="confirmDelete({{ $user->id }})">
+                                
+                                    <button type="button" class="btn btn-danger btn-icon-split mr-2" onclick="deleteUser({{ $user->id }})">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
                                         <span class="text">Hapus</span>
-                                    </a>
+                                    </button>
                                 </form>
                             </td>
                         </tr>

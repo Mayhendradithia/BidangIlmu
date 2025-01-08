@@ -35,7 +35,7 @@ class ProfilController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
             'old_password' => 'required|current_password', // Validasi password lama
-            'password' => 'nullable|min:6|confirmed', // Validasi password jika diisi
+            'password' => 'nullable|min:8|confirmed', // Validasi password jika diisi
         ]);
 
         // Update data pengguna

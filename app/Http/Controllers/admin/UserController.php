@@ -57,7 +57,7 @@ public function update(Request $request, $id)
     $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255|unique:users,email,' . $id,
-        'password' => 'nullable|min:6|confirmed', // Validasi password jika diisi
+        'password' => 'nullable|min:8|confirmed', // Validasi password jika diisi
     ]);
 
     // Update data user
@@ -74,6 +74,17 @@ public function update(Request $request, $id)
     return redirect()->route('admin.users')->with('success', 'User updated successfully');
 }
 
+public function destroy($id)
+{
+    // Ambil data user berdasarkan ID
+    $user = User::findOrFail($id);
+
+    // Hapus data user
+    $user->delete();
+
+    // Redirect dengan pesan sukses
+    return redirect()->route('admin.users')->with('success', 'User berhasil dihapus.');
+}
 
 
 
