@@ -22,7 +22,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total Materi</div>
-                                        <div class="h5 mb-0 font-weifasjght-bold text-gray-800">{{ $totalMateri }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalMateri }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="bi bi-book-half fa-2x         text-gray-300"></i>
@@ -95,7 +95,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Team Intern ship 2025</span>
                 </div>
             </div>
         </footer>

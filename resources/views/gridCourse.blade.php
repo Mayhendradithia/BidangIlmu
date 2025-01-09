@@ -75,10 +75,7 @@
 
                 <!-- End Row -->
 
-                <div class="text-center">
-                    <a class="btn btn-link" href="courses.html">Lihat Materi Lain <i
-                            class="bi-chevron-right small ms-1"></i></a>
-                </div>
+                
             </div>
             <!-- End Card Grid -->
 

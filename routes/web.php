@@ -15,6 +15,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SeederController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +29,16 @@ use App\Http\Controllers\ProfilController;
 */
 
 /*Admin Routes*/
+// routes/web.php
 
 
+// Seeder Route
+Route::post('/run-seeder', [SeederController::class, 'runSeeder'])->name('runSeed');
+
+// Admin login routes
 Route::get('/formAdmin', [loginAdminController::class, 'formAdmin'])->name('formAdmin');
-Route::post('/loginAdmin', [loginAdminController::class, 'admin'])->name('admin');
-Route::post('/logoutAdmin', [loginAdminController::class, 'logoutAdmin'])->name('logoutAdmin'); // Form action ke sini
+Route::post('/loginAdmin', [loginAdminController::class, 'admin'])->name('loginAdmin');  // Changed the name to loginAdmin
+Route::post('/logoutAdmin', [loginAdminController::class, 'logoutAdmin'])->name('logoutAdmin');
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users'); // Menampilkan daftar user

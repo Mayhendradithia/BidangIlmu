@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class loginAdminController extends Controller
 {
-    public function formAdmin ()
+
+    public function formAdmin()
     {
         return view('admin.loginAdmin');  // View login
     }
@@ -32,25 +33,19 @@ class loginAdminController extends Controller
             return redirect()->route('dashbord');
         }
 
-        // Kalau gagal, kembali ke halaman login dengan error
-        return back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ]);
+        // Kalau gagal, kirim pesan error ke session
+        session()->flash('status', 'Email atau password salah.');
+        return back();
     }
-
-
 
     // Logout
     public function logoutAdmin()
-{
-    Auth::guard('admin')->logout(); 
-    
-    
-    session()->invalidate();
-    session()->regenerateToken();
+    {
+        Auth::guard('admin')->logout(); 
+        
+        session()->invalidate();
+        session()->regenerateToken();
 
-    
-    return redirect()->route('formAdmin');
-}
-
+        return redirect()->route('formAdmin');
+    }
 }

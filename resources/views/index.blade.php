@@ -83,7 +83,7 @@
 
             <!-- Blockquote -->
             <figure class="w-md-75 text-center mx-md-auto">
-                <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu udah langkah besar buat masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”</blockquote>
+                <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu suatu langkah besar buat masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”</blockquote>
 
                 <figcaption class="blockquote-footer text-center">
                     Team Intern
@@ -112,71 +112,60 @@
                         <div class="card zi-2">
                             <div class="card-body">
                                 <!-- Form -->
-                                <form>
+                                <form id="contactForm">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <!-- Form -->
                                             <div class="mb-4">
-                                                <label class="form-label" for="hireUsFormFirstName">Nama Awal</label>
-                                                <input type="text" class="form-control form-control-lg"
-                                                    name="hireUsFormNameFirstName" id="hireUsFormFirstName"
-                                                    placeholder="Nama Awal" aria-label="First name">
+                                                <label class="form-label" for="firstName">Nama Awal</label>
+                                                <input type="text" class="form-control form-control-lg" id="firstName" placeholder="Nama Awal">
                                             </div>
-                                            <!-- End Form -->
                                         </div>
-                                        <!-- End Col -->
-
                                         <div class="col-sm-6">
-                                            <!-- Form -->
                                             <div class="mb-4">
-                                                <label class="form-label" for="hireUsFormLasttName">Nama Akhir</label>
-                                                <input type="text" class="form-control form-control-lg"
-                                                    name="hireUsFormNameLastName" id="hireUsFormLasttName"
-                                                    placeholder="Nama Akhir" aria-label="Last name">
+                                                <label class="form-label" for="lastName">Nama Akhir</label>
+                                                <input type="text" class="form-control form-control-lg" id="lastName" placeholder="Nama Akhir">
                                             </div>
-                                            <!-- End Form -->
                                         </div>
-                                        <!-- End Col -->
                                     </div>
-                                    <!-- End Row -->
-
-                                    <!-- Form -->
                                     <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormWorkEmail">Alamat Email</label>
-                                        <input type="email" class="form-control form-control-lg"
-                                            name="hireUsFormNameWorkEmail" id="hireUsFormWorkEmail"
-                                            placeholder="email@site.com" aria-label="email@site.com">
+                                        <label class="form-label" for="email">Alamat Email</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" placeholder="email@site.com">
                                     </div>
-                                    <!-- End Form -->
-
-                                    <!-- Form -->
-
-                                    <!-- End Form -->
-
-                                    <!-- Select -->
-
-                                    <!-- End Select -->
-
-                                    <!-- Form -->
                                     <div class="mb-4">
-                                        <label class="form-label" for="hireUsFormDetails">Ajukan Pertanyaan</label>
-                                        <textarea class="form-control form-control-lg" name="hireUsFormNameDetails" id="hireUsFormDetails"
-                                        placeholder="...." aria-label="Tell us about your project" rows="4"></textarea>
+                                        <label class="form-label" for="phone">Nomor</label>
+                                        <input type="text" class="form-control form-control-lg" id="phone" placeholder="Nomor Telepon">
                                     </div>
-                                    <!-- End Form -->
-                                    
-                                    <!-- Check -->
-
-                                    <!-- End Check -->
-
+                                    <div class="mb-4">
+                                        <label class="form-label" for="message">Ajukan Pertanyaan</label>
+                                        <textarea class="form-control form-control-lg" id="message" placeholder="...." rows="4"></textarea>
+                                    </div>
                                     <div class="d-grid mb-2">
-                                        <button type="submit" class="btn btn-primary btn-lg">Kirim </button>
-                                    </div>
-                                    
-                                    <div class="text-center">
-                                        <span class="form-text">Kami akan Membalas 1 sampai 2 hari.</span>
+                                        <button type="button" class="btn btn-primary btn-lg" onclick="sendWhatsApp()">Kirim</button>
                                     </div>
                                 </form>
+                                
+                                <script>
+                                    function sendWhatsApp() {
+                                        // Ambil nilai dari form
+                                        const firstName = document.getElementById('firstName').value;
+                                        const lastName = document.getElementById('lastName').value;
+                                        const email = document.getElementById('email').value;
+                                        const phone = document.getElementById('phone').value;
+                                        const message = document.getElementById('message').value;
+                                
+                                        // Buat URL WhatsApp
+                                        const whatsappNumber = '628111081771'; // Ganti dengan nomor WhatsApp tujuan
+                                        const whatsappURL = `https://wa.me/628111081771?text=Hallo%20admin%2CBidangIlmu%2C%20saya%20ingin%20mengajukan%20pertanyaan.
+` +
+                                            encodeURIComponent(`Halo, saya ${firstName} ${lastName},\n` +
+                                            `Email: ${email}\n` +
+                                            `Pesan: ${message}`);
+                                
+                                        // Buka WhatsApp di tab baru
+                                        window.open(whatsappURL, '_blank');
+                                    }
+                                </script>
+                                
                                 <!-- End Form -->
                             </div>
                         </div>
