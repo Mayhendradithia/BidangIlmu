@@ -25,9 +25,25 @@
             </div>
 
             <div class="form-group">
+                <label for="title_overview">Title Overview</label>
+                <input type="text" name="title_overview" id="title_overview" class="form-control" value="{{ old('title_overview', $abouts->title_overview) }}" required>
+                @error('title_overview')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" class="form-control" rows="4" required>{{ old('description', $abouts->description) }}</textarea>
                 @error('description')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" required>{{ old('deskripsi', $abouts->deskripsi) }}</textarea>
+                @error('deskripsi')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

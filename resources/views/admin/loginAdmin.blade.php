@@ -57,10 +57,7 @@
             </div>
             <!-- Remember me -->
             <div class="mb-3 d-sm-flex justify-content-between">
-                <div>
-                    <input type="checkbox" class="form-check-input" id="rememberCheck" name="remember">
-                    <label class="form-check-label" for="rememberCheck">Remember me?</label>
-                </div>
+               
             </div>
             <!-- Submit button -->
             <div class="d-grid">

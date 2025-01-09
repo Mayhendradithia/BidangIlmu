@@ -17,18 +17,22 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Tittle</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th>Judul</th>
+                            <th>Deskripsi Singkat</th>
+                            <th>Judul Deskripsi</th>
+                            <th>Deskripsi</th>
+                            <th>Gambar</th>
+                            <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Tittle</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th>Judul</th>
+                            <th>Deskripsi Singkat</th>
+                            <th>Judul Deskripsi</th>
+                            <th>Deskripsi</th>
+                            <th>Gambar</th>
+                            <th>Tindakan</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -36,6 +40,9 @@
                             <tr>
                                 <td>{{ $about->title }}</td>
                                 <td>{{ Str::limit($about->description, 50) }}</td>
+                                <td>{{ $about->title_overview }}</td>
+                                <td>{{ Str::limit($about->deskripsi, 50) }}</td>
+
                                 <td><img src="{{ asset('storage/' . $about->image) }}" alt="Image" width="100"
                                         class="img-thumbnail">
 

@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->text('description');
                 $table->string('image')->nullable(); // Opsional, jika ada gambar
                 $table->timestamps();
+                
             });
         }
     }

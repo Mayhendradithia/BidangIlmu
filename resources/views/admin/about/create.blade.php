@@ -13,8 +13,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Deskripsi</label>
+                <label for="title_overview" class="form-label">Judul Overview</label>
+                <input type="text" name="title_overview" class="form-control" placeholder="Masukkan judul overview" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi Singkat</label>
                 <textarea name="description" class="form-control" rows="4" placeholder="Masukkan deskripsi" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deskripsi Tambahan</label>
+                <textarea name="deskripsi" class="form-control" rows="4" placeholder="Masukkan deskripsi tambahan" required></textarea>
             </div>
 
             <div class="mb-3">
