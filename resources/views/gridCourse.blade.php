@@ -86,19 +86,17 @@
                 <div class="position-relative bg-light text-center rounded-2 zi-2 mx-3 mx-md-10">
                     <div class="container content-space-2">
                         <div class="text-center mb-5">
-                            <img class="avatar avatar-lg avatar-4x3" src="../assets/svg/illustrations/oc-person-2.svg"
-                                alt="Illustration">
+                            <img class="avatar avatar-lg avatar-4x3" src="assets/svg/illustrations/oc-person-1.svg"
+                            alt="Illustration">
                         </div>
 
                         <!-- Blockquote -->
                         <figure class="w-md-75 text-center mx-md-auto">
-                            <blockquote class="blockquote mb-7">“ The best part about Front Course is the selection. You
-                                can find a course for anything you want to learn! Thank you Front Course! You've renewed my
-                                passion for learning and my dream of becoming a web developer. ”</blockquote>
-
-                            <figcaption class="blockquote-footer mt-2">
-                                Martin
-                                <span class="blockquote-footer-source">Happy customer</span>
+                            <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu suatu langkah besar buat masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”</blockquote>
+            
+                            <figcaption class="blockquote-footer text-center">
+                                Team Intern
+                                <span class="blockquote-footer-source">BidangIlmu | 2025</span>
                             </figcaption>
                         </figure>
                         <!-- End Blockquote -->

@@ -16,7 +16,7 @@
 
                     <div class="d-grid d-sm-flex gap-3">
                         <a class="btn btn-primary btn-transition" href="{{ route('gridCourse')}}">Bergabung</a>
-                        <a class="btn btn-link" href="{{ route('about') }}">Let's Talk <i class="bi-chevron-right small ms-1"></i></a>
+                       
                     </div>
                 </div>
                 <!-- End Col -->
