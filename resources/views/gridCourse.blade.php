@@ -9,22 +9,29 @@
         <!-- ========== MAIN CONTENT ========== -->
         <main id="content" role="main">
             <!-- Hero -->
-            <div class="bg-light">
+            <div class="bg-gradient-light py-5" style="background: linear-gradient(to right, #f8f9fa, #ffffff);">
                 <div class="container content-space-2">
                     <div class="row justify-content-lg-between align-items-md-center">
                         <div class="col-md-6 mb-5 mb-md-0">
-                            <div class="mb-3">
-                                <h1>Mau belajar apa hari ini ?</h1>
-                                <p>Kami Selalu Siap Untuk Membantu Proses Pembelajaran Kamu</p>
-                                <p>Banyak pilihan Kategori yang bisa kamu pilih</p>
+                            <div class="mb-4">
+                                <h1 style="font-size: 3.5rem; font-weight: 600; color: #2c3e50; letter-spacing: -0.3px; line-height: 1.3;">
+                                    Mau belajar apa
+                                    <span style="color: #3498db;">hari ini?</span>
+                                </h1>
+                                <div class="text-content mt-4">
+                                    
+                                    <p style="color: #5f6c7b; font-size: 1rem; font-weight: 300; letter-spacing: 0.3px; line-height: 1.6;">
+                                        Banyak pilihan Kategori yang bisa kamu pilih sesuai dengan minat dan kebutuhanmu
+                                    </p>
+                                </div>
                             </div>
-
                         </div>
                         <!-- End Col -->
-
+            
                         <div class="col-md-5">
-                            <img class="img-fluid" src="../assets/svg/illustrations/oc-looking-for-answers.svg"
-                                alt="Image Description">
+                            <img class="img-fluid" 
+                                 src="../assets/svg/illustrations/oc-looking-for-answers.svg"
+                                 alt="Image Description">
                         </div>
                         <!-- End Col -->
                     </div>

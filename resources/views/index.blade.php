@@ -30,13 +30,13 @@
 
          <!-- Mitra -->
 <!-- Mitra -->
-<div class="js-swiper-hero-clients swiper text-center">
+<div class="js-swiper-hero-clients swiper text-center mb-10">
     <div class="swiper-wrapper">
         <!-- Looping semua data mitra -->
         @foreach ($mitra as $mitras)
             <div class="swiper-slide text-center">
                 <img src="{{ asset('storage/' . $mitras->image) }}" alt="Logo" class="img-fluid"
-                    style="max-width: 100px; max-height: 100px;">
+                    style="max-width: 70px; max-height: 80px;">
             </div>
         @endforeach
     </div>
@@ -57,9 +57,9 @@
             <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0"> <!-- Setiap kartu dalam kolom -->
                 <!-- Card -->
                 <a class="card card-sm card-transition h-100" href="{{ route('about') }}">
-                    <div class="card-body">
-                        <span class="svg-icon text-primary mb-3 d-block text-start">
-                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="64" height="64" class="me-2">
+                    <div class="card-body text-center"> <!-- Tambahkan text-center -->
+                        <span class="svg-icon text-primary mb-7 d-block">
+                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="50" height="48">
                         </span>
                         <h4 class="card-title">{{ $benefits->title_benefit }}</h4>
                         <p class="card-text text-body">{{ $benefits->description }}</p>
@@ -69,6 +69,7 @@
             </div>
         @endforeach
     </div>
+    
 </div>
 <!-- End Row -->
 
@@ -103,7 +104,7 @@
                     <div class="w-lg-65 text-center mx-lg-auto mb-7">
                         <span class="text-cap text-white-70">Hubungi Kami</span>
                         <h2 class="text-white lh-base">Untuk mempermudah pengalaman Kamu, kami telah menyediakan Form yang bisa kamu isi atas pertanyaan yang ingin diajukan.<span
-                                class="text-warning">Let's chat.</span></h2>
+                                class="text-warning">Ayo Berbincang</span></h2>
                     </div>
                     <!-- End Heading -->
 

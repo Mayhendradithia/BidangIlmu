@@ -81,8 +81,9 @@
                                 <!-- Tombol Keluar -->
                                 <form action="{{ route('logout') }}" method="POST" id="logoutForm">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger w-100">
-                                        Keluar
+                                    <button type="submit" class="btn btn-outline-danger w-100 "><i class="bi bi-box-arrow-right"></i>
+
+                                        Logout
                                     </button>
                                 </form>
                             </div>

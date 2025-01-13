@@ -14,12 +14,14 @@
     </div>
 
     <div class="row gx-3 justify-content-center align-items-center min-vh-100">
-      <div class="col mb-3 d-flex justify-content-center align-items-center">
-          <div class="bg-img-start">
-              <img style="height: 15rem;" src="{{ asset('/storage/' . $about->image) }}">
+      <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
+          <div class="bg-img-start" style="width: 70%; max-width: 100%;">
+              <img class="img-fluid" style="border-radius: 10px;" src="{{ asset('/storage/' . $about->image) }}">
           </div>
       </div>
   </div>
+  
+   
   
   <!-- End Gallery -->
 

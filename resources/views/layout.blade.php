@@ -122,7 +122,7 @@
                                                                 @endforeach
                                                             </div>
                                                         @else
-                                                            <p>No categories available</p>
+                                                            <p>Kategori Tidak Tersedia</p>
                                                         @endif
                                                     </div>
                                         
