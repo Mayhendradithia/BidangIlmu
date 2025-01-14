@@ -59,7 +59,7 @@
                 <a class="card card-sm card-transition h-100" href="{{ route('about') }}">
                     <div class="card-body text-center"> <!-- Tambahkan text-center -->
                         <span class="svg-icon text-primary mb-7 d-block">
-                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="50" height="48">
+                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="50" height="45   ">
                         </span>
                         <h4 class="card-title">{{ $benefits->title_benefit }}</h4>
                         <p class="card-text text-body">{{ $benefits->description }}</p>
