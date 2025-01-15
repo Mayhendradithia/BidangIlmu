@@ -59,7 +59,7 @@
                 <a class="card card-sm card-transition h-100" href="{{ route('about') }}">
                     <div class="card-body text-center"> <!-- Tambahkan text-center -->
                         <span class="svg-icon text-primary mb-7 d-block">
-                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="50" height="45   ">
+                            <img src="{{ asset('storage/' . $benefits->icon) }}" alt="icon" width="50" height="40  ">
                         </span>
                         <h4 class="card-title">{{ $benefits->title_benefit }}</h4>
                         <p class="card-text text-body">{{ $benefits->description }}</p>
@@ -97,8 +97,8 @@
 
         <!-- Contacts -->
         <section id="contact">
-            <div class="position-relative">
-                <div class="bg-dark" style="background-image: url(assets/svg/components/wave-pattern-light.svg);">
+            <div class="position-relative "> 
+                <div class="bg-dark rounded-3" style="background-image: url(assets/svg/components/wave-pattern-light.svg);">
                 <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-1">
                     <!-- Heading -->
                     <div class="w-lg-65 text-center mx-lg-auto mb-7">
@@ -162,7 +162,6 @@
                                             `Email: ${email}\n` +
                                             `Pesan: ${message}`);
                                 
-                                        // Buka WhatsApp di tab baru
                                         window.open(whatsappURL, '_blank');
                                     }
                                 </script>

@@ -29,14 +29,14 @@
                     style="text-align: center;">
                     <thead>
                         <tr>
-                            <th style="width: 50%;">Title</th>
-                            <th style="width: 50%;">Action</th>
+                            <th style="width: 50%;">Kategori</th>
+                            <th style="width: 50%;">Aksi</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Title</th>
-                            <th>Action</th>
+                            <th>Kategori</th>
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>

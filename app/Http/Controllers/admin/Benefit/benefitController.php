@@ -26,7 +26,7 @@ class BenefitController extends Controller
             'caption' => 'nullable',
             'title_benefit' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp|max:4096',
+            
             'icon' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp|max:4096',
         ]);
 
@@ -57,7 +57,7 @@ class BenefitController extends Controller
             'caption' => 'required',
             'title_benefit' => 'required',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg,webp|max:4096',
+            
             'icon' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg,webp|max:4096',
         ]);
 

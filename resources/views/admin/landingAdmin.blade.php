@@ -3,14 +3,14 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Configuration LandingPage</h1>
-        <p class="mb-4">Data ini sangat berpengaruh pada website maka <a target="_blank" href="">hati
+        <h1 class="h3 mb-2 text-gray-800">Konfigurasi Halaman Beranda</h1>
+        <p class="mb-4">Data ini sangat berpengaruh pada website maka <a target="_blank" class="text-warning">hati
                 hati lah</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                <h6 class="m-0 font-weight-bold text-primary">Welcome page Configuration</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Di Halaman Konfigurasi</h6>
 
                 <a class="btn btn-success btn-icon-split" href="{{ route('konfigurasi.create') }}">
                     <span class="icon text-white-50">
@@ -163,7 +163,6 @@
                                 <th>Title</th>
                                 <th>Caption</th>
                                 <th>Title Benefit</th>
-                                <th>Image</th>
                                 <th>Icon</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -174,7 +173,6 @@
                                 <th>Title</th>
                                 <th>Caption</th>
                                 <th>Title Benefit</th>
-                                <th>Image</th>
                                 <th>Icon</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -186,8 +184,6 @@
                                     <td>{{ $benefit->title }}</td>
                                     <td>{{ $benefit->caption }}</td>
                                     <td>{{ $benefit->title_benefit }}</td>
-                                    <td><img src="{{ asset('/storage/' . $benefit->image) }}" alt="Gambar"
-                                            style="width: 150px; height: auto;"></td>
                                     <td><img src="{{ asset('/storage/' . $benefit->icon) }}" alt="Gambar"
                                             style="width: 150px; height: auto;"></td>
                                     <td>{{ $benefit->description }}</th>

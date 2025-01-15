@@ -35,14 +35,6 @@
             <textarea name="description" id="description" class="form-control" rows="4" required>{{ old('description', $benefit->description) }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input type="file" name="image" id="image" class="form-control" accept="image/*">
-            @if ($benefit->image)
-                <small>Current Image:</small><br>
-                <img src="{{ asset('storage/' . $benefit->image) }}" alt="Current Image" width="100">
-            @endif
-        </div>
-        <div class="mb-3">
             <label for="icon" class="form-label">Icon</label>
             <input type="file" name="icon" id="icon" class="form-control" accept="image/*">
             @if ($benefit->icon)

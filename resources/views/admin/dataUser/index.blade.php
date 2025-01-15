@@ -10,7 +10,6 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                 <thead>
                     <tr>
-                        <th style="width: 5%;">ID</th>
                         <th style="width: 20%;">Nama</th>
                         <th style="width: 20%;">Email</th>
                         <th style="width: 20%;">Tanggal Dibuat</th>
@@ -19,7 +18,6 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>ID</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Tanggal Dibuat</th>
@@ -29,7 +27,6 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->created_at->format('d M Y') }}</td>

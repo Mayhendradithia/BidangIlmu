@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class benefit extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'caption', 'title_benefit', 'description', 'image', 'icon'];
+    protected $fillable = ['title', 'caption', 'title_benefit', 'description','icon'];
 }
