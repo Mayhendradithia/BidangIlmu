@@ -40,6 +40,9 @@ Route::get('/formAdmin', [loginAdminController::class, 'formAdmin'])->name('form
 Route::post('/loginAdmin', [loginAdminController::class, 'admin'])->name('loginAdmin');  // Changed the name to loginAdmin
 Route::post('/logoutAdmin', [loginAdminController::class, 'logoutAdmin'])->name('logoutAdmin');
 
+
+
+
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users'); // Menampilkan daftar user
     Route::get('admin/user/{id}/verifyPassword', [UserController::class, 'edit'])->name('user.verifyPassword'); // Form verifikasi password

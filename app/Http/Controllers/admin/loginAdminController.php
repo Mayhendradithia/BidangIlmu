@@ -41,11 +41,13 @@ class loginAdminController extends Controller
     // Logout
     public function logoutAdmin()
     {
-        Auth::guard('admin')->logout(); 
-        
+        Auth::guard('admin')->logout();
+
+        // Hapus sesi dan token untuk memastikan sesi admin benar-benar berakhir
         session()->invalidate();
         session()->regenerateToken();
 
+        // Redirect ke halaman login setelah logout
         return redirect()->route('formAdmin');
     }
 }
