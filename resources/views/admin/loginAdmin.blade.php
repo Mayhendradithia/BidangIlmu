@@ -35,7 +35,7 @@
           <h1 class="mb-2">Sign in</h1>
 
           <!-- Form login -->
-          <form class="mt-sm-4" action="{{ route('admin') }}" method="POST" novalidate>
+          <form class="mt-sm-4" action="{{ route('loginAdmin') }}" method="POST" novalidate>
             @csrf
             <!-- Display errors as an alert -->
             @if ($errors->any())
