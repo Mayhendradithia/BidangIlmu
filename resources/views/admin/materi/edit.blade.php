@@ -13,6 +13,7 @@
                             @csrf
                             @method('PUT') <!-- Gunakan PUT untuk update -->
 
+                            <!-- Input Judul Materi -->
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul Materi</label>
                                 <input class="form-control @error('title') is-invalid @enderror" type="text"
@@ -24,6 +25,7 @@
                                 @enderror
                             </div>
 
+                            <!-- Dropdown Kategori -->
                             <div class="mb-3">
                                 <label for="kategori_id" class="form-label">Kategori</label>
                                 <select class="form-control @error('kategori_id') is-invalid @enderror" id="kategori_id"
@@ -43,6 +45,7 @@
                                 @enderror
                             </div>
 
+                            <!-- Input Overview -->
                             <div class="mb-3">
                                 <label for="overview" class="form-label">Overview</label>
                                 <textarea class="form-control @error('overview') is-invalid @enderror" id="overview" name="overview" rows="3"
@@ -54,6 +57,7 @@
                                 @enderror
                             </div>
 
+                            <!-- Input Benefit -->
                             <div class="mb-3">
                                 <label for="benefit" class="form-label">Benefit</label>
                                 <textarea class="form-control @error('benefit') is-invalid @enderror" id="benefit" name="benefit" rows="3"
@@ -66,10 +70,7 @@
                                 @enderror
                             </div>
 
-
-
-
-
+                            <!-- Input Deskripsi -->
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="5"
@@ -81,6 +82,7 @@
                                 @enderror
                             </div>
 
+                            <!-- Input URL Video -->
                             <div class="mb-3">
                                 <label for="url_video" class="form-label">URL Video (YouTube)</label>
                                 <input class="form-control @error('url_video') is-invalid @enderror" type="url"
@@ -93,6 +95,52 @@
                                 @enderror
                             </div>
 
+                            <!-- Dropdown Pilihan Berbayar atau Gratis -->
+                            <div class="mb-3">
+                                <label for="payment_status" class="form-label">Status Pembayaran</label>
+                                <select class="form-control" id="payment_status" name="payment_status" onchange="togglePaymentFields()" required>
+                                    <option value="gratis" {{ old('payment_status', $materi->payment_status) == 'gratis' ? 'selected' : '' }}>Gratis</option>
+                                    <option value="berbayar" {{ old('payment_status', $materi->payment_status) == 'berbayar' ? 'selected' : '' }}>Berbayar</option>
+                                </select>
+                            </div>
+
+                            <!-- Input untuk Berbayar -->
+                            <div id="paymentFields" class="payment-fields">
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Harga</label>
+                                    <input class="form-control @error('price') is-invalid @enderror" type="number"
+                                        id="price" name="price" value="{{ old('price', $materi->price) }}">
+                                    @error('price')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="payment" class="form-label">Metode Pembayaran</label>
+                                    <input class="form-control @error('payment') is-invalid @enderror" type="text"
+                                        id="payment" name="payment" value="{{ old('payment', $materi->payment) }}">
+                                    @error('payment')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password (Jika diperlukan)</label>
+                                    <input class="form-control @error('password') is-invalid @enderror" type="text"
+                                        id="password" name="password" value="{{ old('password', $materi->password) }}">
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!-- Tombol Submit -->
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Update Materi</button>
                             </div>
@@ -103,3 +151,16 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function togglePaymentFields() {
+            const paymentStatus = document.getElementById('payment_status').value;
+            const paymentFields = document.getElementById('paymentFields');
+            paymentFields.style.display = paymentStatus === 'berbayar' ? 'block' : 'none';
+        }
+
+        // Set default state saat halaman dimuat
+        togglePaymentFields();
+    </script>
+@endpush

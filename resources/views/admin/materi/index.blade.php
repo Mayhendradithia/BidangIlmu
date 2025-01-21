@@ -17,13 +17,17 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                 <thead>
                     <tr>
-                        <th style="width: 10%;">Judul</th>
-                        <th style="width: 10%;">Kategori</th>
-                        <th style="width: 15%;">Overview</th>
-                        <th style="width: 15%;">Benefit</th>
+                        <th style="width: 8%;">Judul</th>
+                        <th style="width: 8%;">Kategori</th>
+                        <th style="width: 10%;">Overview</th>
+                        <th style="width: 12%;">Benefit</th>
                         <th style="width: 20%;">Deskripsi</th>
-                        <th style="width: 15%;">Url Video</th>
-                        <th style="width: 20%;">Aksi</th>
+                        <th style="width: 10%;">Url Video</th>
+                        <th style="width: 8%;">Harga</th>
+                        <th style="width: 8%;">Payment</th>
+                        <th style="width: 8%;">OTP</th>
+                        <th style="width: 10%;">Aksi</th>
+                        
                     </tr>
                 </thead>
                 <tfoot>
@@ -34,6 +38,9 @@
                         <th>Benefit</th>
                         <th>Deskripsi</th>
                         <th>Url Video</th>
+                        <th>Harga</th>
+                        <th>Payment</th>
+                        <th>OTP</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
@@ -46,6 +53,9 @@
                             <td>{{ $materi->benefit }}</td>
                             <td>{{ $materi->deskripsi }}</td>
                             <td>{{ $materi->url_video }}</td>
+                            <td>{{ $materi->price ?? 'Free' }}</td>
+                            <td>{{ $materi->payment ?? 'Free' }}</td>
+                            <td>{{ $materi->password ?? 'Tidak Tersedia' }}</td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-primary btn-icon-split mr-2" href="{{ route('materi.edit', $materi->id) }}">
                                     <span class="icon text-white-50">

@@ -17,15 +17,27 @@ class Materi extends Model
         'benefit',
         'deskripsi',
         'url_video',
+        'password',
+        'harga',
+        'payment',
+        'is_premium',
+    ];
+    
+    protected $casts = [
+        'harga' => 'decimal:2',
     ];
 
-    /**
-     * Relasi ke model Kategori
-     * Setiap materi berhubungan dengan satu kategori
-     */
-    // Di model Materi
+    // Relasi ke kategori
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'kategori_id'); // Relasi ke Kategori
     }
+
+    // Method untuk mengecek apakah materi memiliki password
+    public function hasPassword()
+    {
+        return !empty($this->password); // Cek apakah materi memiliki password
+    }
+
 }
+

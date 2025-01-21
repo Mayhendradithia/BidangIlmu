@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SeederController;
 
@@ -50,7 +51,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('admin/user/{id}/edit', [UserController::class, 'editForm'])->name('user.editForm'); // Form edit user setelah password diverifikasi
     Route::put('admin/user/{id}', [UserController::class, 'update'])->name('user.update'); // Update data user
     Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy'); // Hapus user
-    
+
 
 
 
@@ -118,18 +119,37 @@ Route::get('/gridCourse', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-        Route::get('/profile', [ProfilController::class, 'showProfile'])->name('profile');
-        Route::post('/profile/update', [ProfilController::class, 'updateProfile'])->name('profile.update');
-
-    
-
-
-        Route::get('/kategori/{id}', [IndexController::class, 'showKategori'])->name('kategori.show');
-Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
-Route::get('/userCourseOverview/{id}', [courseViewController::class, 'courseOverview'])->name('userCourseOverview');
+    Route::get('/profile', [ProfilController::class, 'showProfile'])->name('profile');
+    Route::post('/profile/update', [ProfilController::class, 'updateProfile'])->name('profile.update');
 
 
 
-    
-    
+
+    Route::get('/kategori/{id}', [IndexController::class, 'showKategori'])->name('kategori.show');
+    Route::get('/gridCourse', [gridCourseController::class, 'gridCourse'])->name('gridCourse');
+
+
+
+
+    // Route untuk menampilkan materi
+
+
+// Rute untuk menampilkan materi berdasarkan ID
+
+
+// Rute untuk menampilkan materi tanpa password (direct to courseOverview)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/materi/{id}/premium/form', [courseViewController::class, 'showPasswordForm'])->name('premium.form');
+    Route::post('/materi/{id}/premium/otp', [courseViewController::class, 'processOTP'])->name('premium.otp'); // Sesuaikan nama sesuai struktur atas
+    Route::get('/materi/{id}/premium', [courseViewController::class, 'showPremium'])->name('premium.show'); // Tetap gunakan nama ini
+    Route::get('/materi/{id}/premium/register', [courseViewController::class, 'showRegisterForm'])->name('premium.register');
+
+});
+
+
+Route::get('/materi/{id}/free', [courseViewController::class, 'courseFree'])->name('materi.free');
+
+
+
+
 });

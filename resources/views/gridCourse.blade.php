@@ -1,4 +1,3 @@
-
 <body>
     <!-- ========== HEADER ========== -->
     @extends('layout')
@@ -14,24 +13,25 @@
                     <div class="row justify-content-lg-between align-items-md-center">
                         <div class="col-md-6 mb-5 mb-md-0">
                             <div class="mb-4">
-                                <h1 style="font-size: 3.5rem; font-weight: 600; color: #2c3e50; letter-spacing: -0.3px; line-height: 1.3;">
+                                <h1
+                                    style="font-size: 3.5rem; font-weight: 600; color: #2c3e50; letter-spacing: -0.3px; line-height: 1.3;">
                                     Mau belajar apa
                                     <span style="color: #3498db;">hari ini?</span>
                                 </h1>
                                 <div class="text-content mt-4">
-                                    
-                                    <p style="color: #5f6c7b; font-size: 1rem; font-weight: 300; letter-spacing: 0.3px; line-height: 1.6;">
+
+                                    <p
+                                        style="color: #5f6c7b; font-size: 1rem; font-weight: 300; letter-spacing: 0.3px; line-height: 1.6;">
                                         Banyak pilihan Kategori yang bisa kamu pilih sesuai dengan minat dan kebutuhanmu
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <!-- End Col -->
-            
+
                         <div class="col-md-5">
-                            <img class="img-fluid" 
-                                 src="../assets/svg/illustrations/oc-looking-for-answers.svg"
-                                 alt="Image Description">
+                            <img class="img-fluid" src="../assets/svg/illustrations/oc-looking-for-answers.svg"
+                                alt="Image Description">
                         </div>
                         <!-- End Col -->
                     </div>
@@ -61,29 +61,55 @@
                                         <h3 class="card-title">
                                             <a class="text-dark">{{ $item->title ?? 'Belum Maintenance' }}</a>
                                         </h3>
+                                        <!-- Tambahkan teks Premium atau Gratis -->
+                                        @if (!empty($item->password))
+                                        <p class="text-muted">
+                                            <i class="bi bi-lock"></i> Premium
+                                        </p>
+                                    @else
+                                        <p class="text-success">
+                                            <i class="bi bi-unlock"></i> Gratis
+                                        </p>
+                                    @endif
+                                    
+                                    
+                                    
+
                                     </div>
                                 </div>
                                 <div class="card-footer pt-0">
                                     <div class="d-flex justify-content-between align-items-center float-end">
                                         @auth
-                                            <a class="btn btn-primary btn-sm btn-transition"
-                                               href="{{ route('userCourseOverview', ['id' => $item->id]) }}">Selengkapnya</a>
+                                            @if ($item->password)
+                                                <!-- Jika materi berbayar, periksa password dan arahkan ke form pembayaran -->
+                                                <a class="btn btn-primary btn-sm btn-transition"
+                                                   href="{{ route('premium.show', ['id' => $item->id]) }}">
+                                                   Akses Materi
+                                                </a>
+                                            @else
+                                                <!-- Jika materi gratis, langsung ke course overview -->
+                                                <a class="btn btn-primary btn-sm btn-transition"
+                                                   href="{{ route('materi.free', ['id' => $item->id]) }}">
+                                                   Akses Materi
+                                                </a>
+                                            @endif
                                         @else
+                                            <!-- Jika belum login, arahkan ke form login -->
                                             <a class="btn btn-primary btn-sm btn-transition"
                                                href="{{ route('showLoginForm') }}">Selengkapnya</a>
                                         @endauth
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     @endforeach
                 </div>
-                
+
 
                 <!-- End Row -->
-
-                
             </div>
+
             <!-- End Card Grid -->
 
             <!-- Lists -->
@@ -94,13 +120,15 @@
                     <div class="container content-space-2">
                         <div class="text-center mb-5">
                             <img class="avatar avatar-lg avatar-4x3" src="assets/svg/illustrations/oc-person-1.svg"
-                            alt="Illustration">
+                                alt="Illustration">
                         </div>
 
                         <!-- Blockquote -->
                         <figure class="w-md-75 text-center mx-md-auto">
-                            <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu suatu langkah besar buat masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”</blockquote>
-            
+                            <blockquote class="blockquote">“ Setiap langkah kecil menuju ilmu, itu suatu langkah besar buat
+                                masa depan! dan Lihat hasilnya nanti, semua usaha kamu sekarang pasti bakal terbayar! ”
+                            </blockquote>
+
                             <figcaption class="blockquote-footer text-center">
                                 Team Intern
                                 <span class="blockquote-footer-source">BidangIlmu | 2025</span>

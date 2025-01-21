@@ -31,7 +31,10 @@ class gridCourseController extends Controller
 
         return view('gridCourse', compact('materi', 'kategori'));
     }
-    
+
+
+   
+
     
 
 }
