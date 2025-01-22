@@ -5,25 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Payment extends Model
 {
     use HasFactory;
 
+    // Tentukan kolom yang dapat diisi
     protected $fillable = [
         'user_id',
         'materi_id',
-        'price',
-        'status',
-        'snap_token',
+        'phone_number',
+        'proof',
+        'nomor_rekening',
     ];
 
-    // Relasi ke tabel User
+    // Relasi dengan model User
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Relasi ke tabel Materi
+    // Relasi dengan model Materi
     public function materi()
     {
         return $this->belongsTo(Materi::class);

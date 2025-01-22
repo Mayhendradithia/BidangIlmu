@@ -38,17 +38,13 @@
                             </button>
                         </form>
 
-                        <div class="text-center">
-                            <p class="text-muted mb-3">Atau</p>
-                        </div>
-
 
 
                         <!-- Purchase Form -->
                        
                         <div class="text-center">
                             <p class="text-muted mb-3">Atau</p>
-                            <a href="{{ route('premium.register', $materi->id) }}" class="btn btn-success btn-lg">
+                            <a href="{{ route('payment.form', $materi->id) }}" class="btn btn-success btn-lg">
                                 <i class="fas fa-credit-card me-2"></i> Daftar dan Bayar
                             </a>
                         </div>

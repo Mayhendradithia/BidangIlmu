@@ -121,6 +121,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Akun User</h6>
                         <a class="collapse-item" href="{{ route('admin.users') }}">Data User</a>
+                        <h6 class="collapse-header">Data Transaksi</h6>
+                        <a class="collapse-item" href="{{ route('admin.payments.index') }}">Transaksi</a>
                     </div>
                 </div>
             </li>

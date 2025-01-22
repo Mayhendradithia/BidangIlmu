@@ -14,6 +14,8 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\admin\DataTransactionsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SeederController;
@@ -51,6 +53,21 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('admin/user/{id}/edit', [UserController::class, 'editForm'])->name('user.editForm'); // Form edit user setelah password diverifikasi
     Route::put('admin/user/{id}', [UserController::class, 'update'])->name('user.update'); // Update data user
     Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy'); // Hapus user
+
+
+    
+    // Form untuk menambah pembayaran baru
+    // Simpan pembayaran baru
+  
+
+    // Edit pembayaran
+
+
+    Route::get('/payments', [DataTransactionsController::class, 'index'])->name('admin.payments.index');
+    Route::get('/payments/{payment}/edit', [DataTransactionsController::class, 'edit'])->name('admin.payments.edit');
+    Route::put('/payments/{payment}', [DataTransactionsController::class, 'update'])->name('admin.payments.update');
+    Route::delete('/payments/{payment}', [DataTransactionsController::class, 'destroy'])->name('admin.payments.destroy');
+    
 
 
 
@@ -143,6 +160,18 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/materi/{id}/premium/otp', [courseViewController::class, 'processOTP'])->name('premium.otp'); // Sesuaikan nama sesuai struktur atas
     Route::get('/materi/{id}/premium', [courseViewController::class, 'showPremium'])->name('premium.show'); // Tetap gunakan nama ini
     Route::get('/materi/{id}/premium/register', [courseViewController::class, 'showRegisterForm'])->name('premium.register');
+
+    Route::get('/materi/{id}/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+
+    // Proses pembayaran
+    Route::post('/materi/{id}/payment', [PaymentController::class, 'processPayment'])->name('payment.process');
+    
+    // Halaman sukses pembayaran
+    Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+    
+
+
+
 
 });
 

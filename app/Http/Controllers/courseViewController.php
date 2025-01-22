@@ -14,17 +14,7 @@ class courseViewController extends Controller
         return view('courseOverview', compact('materi'));
     }
 
-    public function showRegisterForm($id)
-    {
-        // Ambil data materi berdasarkan ID
-        $materi = Materi::findOrFail($id);
 
-        // Ambil client key dari konfigurasi
-        $clientKey = config('midtrans.client_key');
-
-        // Tampilkan view dengan data materi dan client key
-        return view('premium.register', compact('materi', 'clientKey'));
-    }
 
     // Menampilkan materi berdasarkan status premium
     public function show($id)
