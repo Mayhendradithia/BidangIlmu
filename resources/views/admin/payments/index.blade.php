@@ -47,13 +47,6 @@
                                 @endif
                             </td>
                             <td class="d-flex justify-content-center">
-                                <a class="btn btn-primary btn-icon-split mr-2" href="{{ route('admin.payments.edit', $payment->id) }}">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Edit</span>
-                                </a>
-
                                 <form action="{{ route('admin.payments.destroy', $payment->id) }}" method="POST" id="delete-form-{{ $payment->id }}" style="display: none;">
                                     @csrf
                                     @method('DELETE')

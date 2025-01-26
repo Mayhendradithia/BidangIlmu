@@ -47,20 +47,18 @@ class MateriController extends Controller
             'deskripsi' => 'required|string',
             'url_video' => 'required|url',
             'payment' => 'nullable|string',
-            'password' => 'nullable|string',
-            'price' => 'nullable|int',  // Menggunakan 'price' sebagai pengganti 'harga'
-            'is_premium' => 'nullable|boolean', // Memastikan ini nullable dan boolean
+            'password' => 'nullable|string|min:8',
+            'price' => 'nullable|integer',
+            'is_premium' => 'nullable|boolean',
         ]);
-        
+
         $benefits = explode(',', $request->benefit);
-        
-        // Tentukan payment default
-        $payment = $request->payment;
-        if (empty($payment) && empty($request->password)) {
-            $payment = 'Free';
-        }
-        
-        // Simpan materi baru ke database
+
+        // Tentukan default untuk kolom optional
+        $payment = $request->payment ?? 'Free';
+        $price = $request->price ?? 0;
+        $isPremium = $request->is_premium ?? false;
+
         Materi::create([
             'title' => $request->title,
             'kategori_id' => $request->kategori_id,
@@ -68,10 +66,10 @@ class MateriController extends Controller
             'benefit' => implode(',', $benefits),
             'deskripsi' => $request->deskripsi,
             'url_video' => $request->url_video,
-            'payment' => $payment,
-            'password' => $request->password,
-            'price' => $request->price, // Menggunakan 'price' bukan 'harga'
-            'is_premium' => $request->has('is_premium') ? $request->is_premium : false, // Pastikan jika tidak ada nilai maka default false
+            'price' => $request->price ?? null,
+            'is_premium' => $request->is_premium ?? false,
+            'payment' => $request->payment ?? 'Free',
+            'password' => $request->password ?? null,
         ]);
 
         return redirect()->route('materi.index')->with('success', 'Materi berhasil ditambahkan!');
@@ -96,19 +94,17 @@ class MateriController extends Controller
             'url_video' => 'required|url',
             'payment' => 'nullable|string',
             'password' => 'nullable|string|min:8',
-            'price' => 'nullable|int', // Menggunakan 'price' sebagai pengganti 'harga'
-            'is_premium' => 'nullable|boolean', // Memastikan ini nullable dan boolean
+            'price' => 'nullable|integer',
+            'is_premium' => 'nullable|boolean',
         ]);
 
         $benefits = explode(',', $request->benefit);
 
-        // Tentukan payment default
-        $payment = $request->payment;
-        if (empty($payment) && empty($request->password)) {
-            $payment = 'Free';
-        }
+        // Tentukan default untuk kolom optional
+        $payment = $request->payment ?? $materi->payment;
+        $price = $request->price ?? $materi->price;
+        $isPremium = $request->is_premium ?? $materi->is_premium;
 
-        // Update materi
         $materi->update([
             'title' => $request->title,
             'kategori_id' => $request->kategori_id,
@@ -118,8 +114,8 @@ class MateriController extends Controller
             'url_video' => $request->url_video,
             'payment' => $payment,
             'password' => $request->password,
-            'price' => $request->price, // Menggunakan 'price' bukan 'harga'
-            'is_premium' => $request->has('is_premium') ? $request->is_premium : false, // Pastikan jika tidak ada nilai maka default false
+            'price' => $price,
+            'is_premium' => $isPremium,
         ]);
 
         return redirect()->route('materi.index')->with('success', 'Materi berhasil diperbarui!');

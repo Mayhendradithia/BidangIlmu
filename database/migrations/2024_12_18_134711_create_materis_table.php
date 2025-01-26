@@ -14,15 +14,18 @@ return new class extends Migration
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
             $table->string('title'); // Judul materi
-            $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade');
+            $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade'); // Relasi kategori
             $table->string('overview'); // Ringkasan singkat
             $table->string('benefit'); // Manfaat
             $table->text('deskripsi'); // Deskripsi lengkap
             $table->string('url_video'); // URL Video Youtube
-            $table->timestamps();
+            $table->integer('price')->nullable(); // Harga opsional
+            $table->boolean('is_premium')->default(false); // Premium atau tidak (default false)
+            $table->string('payment')->nullable(); // Metode pembayaran opsional
+            $table->string('password')->nullable(); // Password opsional
+            $table->timestamps(); // Timestamps
         });
     }
-
 
     /**
      * Reverse the migrations.

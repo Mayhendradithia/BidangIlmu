@@ -105,7 +105,7 @@
                             <div id="premium_fields" style="display: none;">
                                 <div class="mb-3">
                                     <label for="price" class="form-label">Harga</label>
-                                    <input class="form-control @error('harga') is-invalid @enderror" type="number" id="price" name="price" value="{{ old('price') }}">
+                                    <input class="form-control @error('harga') is-invalid @enderror" type="number" id="price" name="price" value="0"">
                                     @error('price')
                                         <div class="invalid-feedback">
                                             {{ $message }}

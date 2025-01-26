@@ -18,25 +18,6 @@ class DataTransactionsController extends Controller
         return view('admin.payments.index', compact('payments')); // Kirimkan data ke view
     }
 
-    // Menampilkan form edit payment
-    public function edit($id)
-    {
-        $payment = Payment::findOrFail($id);
-        
-        return view('admin.payments.edit', compact('payment')); // Kirimkan data payment ke form edit
-    }
-
-    // Update status payment
-    public function update(Request $request, $id)
-    {
-        $payment = Payment::findOrFail($id);
-        $payment->status = $request->status;
-        $payment->save();
-
-        return redirect()->route('admin.payments.index')->with('success', 'Status payment telah diperbarui!');
-    }
-
-    // Hapus payment
     public function destroy($id)
     {
         $payment = Payment::findOrFail($id);
